@@ -1,4 +1,4 @@
-[READ ONLY] Base module for Rock Framework
+Base module for Rock Framework
 =================
 
 Requirements
