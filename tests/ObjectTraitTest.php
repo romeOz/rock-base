@@ -1,5 +1,5 @@
 <?php
-namespace rockunit\core\base;
+namespace rockunit;
 
 use rock\base\ObjectTrait;
 
@@ -238,9 +238,6 @@ class Baz
     {
         return self::$prvProperty;
     }
-
-
-
 
     /**
      * @return string
