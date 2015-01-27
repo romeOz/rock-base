@@ -3,11 +3,8 @@
 namespace rock\base;
 
 
-use rock\RockInterface;
-
 /**
  * Interface ObjectInterface
- * @property-read RockInterface $Rock
  */
 interface ObjectInterface
 {
@@ -79,9 +76,14 @@ interface ObjectInterface
      */
     public function hasMethod($name);
     /**
-     * Reset property without static property
+     * Reset non-static properties.
      */
     public function reset();
-    public function resetStatic($name = null, array $keys = null);
-    public function resetMultiStatic(array $names);
+    /**
+     * Reset static property.
+     *
+     * @param string|null $name name of static property.
+     * @param array $keys if a static property is an array, you can specify a list of keys to remove.
+     */
+    public function resetStatic($name = null, array $keys = []);
 }
