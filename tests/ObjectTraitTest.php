@@ -1,6 +1,7 @@
 <?php
 namespace rockunit;
 
+use rock\base\BaseException;
 use rock\base\ObjectInterface;
 use rock\base\ObjectTrait;
 
@@ -67,6 +68,82 @@ class ObjectTraitTest extends \PHPUnit_Framework_TestCase
         $bar->exception = 'exception';
     }
 
+
+    public function testSetterGetter()
+    {
+        $config = ['name' => 'Tom', 'age' => 20];
+        $object = new SetterGetter($config);
+        $this->assertSame('Tom', $object->name);
+        $this->assertSame(20, $object->age);
+        $this->assertTrue(isset($object->age));
+        unset($object->age);
+        $this->assertFalse(isset($object->age));
+        $this->assertFalse(isset($object->onlySetter));
+    }
+
+    public function testCanGetSetProperty()
+    {
+        $config = ['name' => 'Tom', 'age' => 20];
+        $object = new SetterGetter($config);
+        $this->assertFalse($object->canGetProperty('onlySetter', false));
+        $this->assertTrue($object->canSetProperty('onlySetter', false));
+        $this->assertTrue($object->canGetProperty('onlyGetter', false));
+        $this->assertFalse($object->canSetProperty('onlyGetter', false));
+    }
+
+    public function testHasProperty()
+    {
+        $object = new SetterGetter();
+        $this->assertTrue($object->hasProperty('onlySetter'));
+        $this->assertFalse($object->hasProperty('unknown'));
+    }
+
+    public function testHasMethod()
+    {
+        $object = new SetterGetter();
+        $this->assertTrue($object->hasMethod('setOnlySetter'));
+        $this->assertFalse($object->hasMethod('unknown'));
+    }
+
+    public function testOnlySetterThrowException()
+    {
+        $this->setExpectedException(BaseException::className());
+        $object = new SetterGetter();
+        $object->onlySetter;
+    }
+
+    public function testOnlyGetterThrowException()
+    {
+        $this->setExpectedException(BaseException::className());
+        $object = new SetterGetter();
+        $object->onlyGetter = 'test';
+    }
+
+    public function testUnsetThrowException()
+    {
+        $this->setExpectedException(BaseException::className());
+        $object = new SetterGetter();
+        unset($object->onlyGetter);
+    }
+
+
+    public function testMethodThrowException()
+    {
+        $this->setExpectedException(BaseException::className());
+        $object = new SetterGetter();
+        $object->unknown();
+    }
+
+    public function testResetProperty()
+    {
+        $config = ['name' => 'Tom', 'age' => 20, 'lastname' => 'Tailor'];
+        $object = new SetterGetter($config);
+        $object->reset();
+        $this->assertNull($object->name);
+        $this->assertNull($object->age);
+        $this->assertSame('Sawyer', $object->lastname);
+
+    }
     public function testResetAllStaticProperties()
     {
         $baz = new Baz(new Bar());
@@ -104,7 +181,6 @@ class ObjectTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $baz->getPrvProperty());
         $this->assertEquals(['name' => 'baz', 'type' => []], $baz->getPrvProperty());
     }
-
     //
     //    public function testCallStaticGetter()
     //    {
@@ -246,5 +322,53 @@ class Baz implements ObjectInterface
     public function getPrtProperty()
     {
         return static::$prtProperty;
+    }
+}
+
+class SetterGetter implements ObjectInterface
+{
+    use ObjectTrait;
+
+    public $name;
+    private $age;
+    protected $onlySetter;
+    protected $onlyGetter;
+
+    private $lastname = 'Sawyer';
+
+    /**
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param string $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    public function setOnlySetter($onlySetter)
+    {
+        $this->onlySetter = $onlySetter;
+    }
+
+    public function getOnlyGetter($onlyGetter)
+    {
+        $this->onlyGetter = $onlyGetter;
     }
 }
