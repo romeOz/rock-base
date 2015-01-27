@@ -23,6 +23,7 @@ interface ExceptionInterface
     const WRONG_TYPE = 'Wrong type: {{name}}.';
     const NOT_INSTALL_LIBRARY = 'Library {{name}} does not install.';
     const NOT_INSTALL_CSRF = 'Library "rock-csrf" does not install.';
+    const NOT_INSTALL_TEMPLATE = 'Library "rock-template" does not install.';
     const NOT_INSTALL_DI = 'Library "rock-di" does not install.';
 
     /**
