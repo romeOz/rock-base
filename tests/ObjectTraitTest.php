@@ -1,6 +1,7 @@
 <?php
 namespace rockunit;
 
+use rock\base\ObjectInterface;
 use rock\base\ObjectTrait;
 
 class ObjectTraitTest extends \PHPUnit_Framework_TestCase
@@ -133,7 +134,7 @@ class ObjectTraitTest extends \PHPUnit_Framework_TestCase
 }
 
 
-class Foo
+class Foo implements ObjectInterface
 {
     use ObjectTrait {
         ObjectTrait::__set as parentSet;
@@ -192,7 +193,7 @@ class Bar extends Foo
 
 }
 
-class Baz
+class Baz implements ObjectInterface
 {
     use ObjectTrait {
         ObjectTrait::__construct as parentConstruct;
