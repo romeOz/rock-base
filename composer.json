@@ -1,7 +1,7 @@
 {
     "name": "romeoz/rock-base",
     "description": "[READ ONLY] Base module for Rock Framework",
-    "keywords": ["rock-base"],
+    "keywords": ["rock framework", "framerock"],
     "type": "library",
     "license": "MIT",
     "support": {
