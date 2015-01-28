@@ -19,6 +19,11 @@
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <blacklist>
+            <file>./src/ExceptionInterface.php</file>
+        </blacklist>
+    </filter>
     <logging>
         <log type="coverage-clover" target="build/logs/clover.xml"/>
     </logging>
