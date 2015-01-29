@@ -1,4 +1,4 @@
-Base module for Rock Framework
+Base module for [Rock Framework](https://github.com/romeOz/rock)
 =================
 
 [![Build Status](https://travis-ci.org/romeOz/rock-base.svg?branch=master)](https://travis-ci.org/romeOz/rock-base)
@@ -11,4 +11,4 @@ Requirements
 License
 -------------------
 
-Base module for Rock Framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Base module for [Rock Framework](https://github.com/romeOz/rock) is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
