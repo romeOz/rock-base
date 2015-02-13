@@ -1,6 +1,8 @@
 <?php
 namespace rockunit;
 
+use rock\base\Alias;
+
 class AliasTest extends \PHPUnit_Framework_TestCase
 {
     public $aliases;
@@ -23,7 +25,10 @@ class AliasTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('foo', \rock\base\Alias::getAlias('foo'));
         $this->assertFalse(\rock\base\Alias::getAlias('@rock', [], false));
 
+        $this->assertFalse(Alias::existsAlias('rock'));
         \rock\base\Alias::setAlias('@rock', '/rock/framework');
+        $this->assertTrue(Alias::existsAlias('@rock'));
+
         $this->assertEquals('/rock/framework', \rock\base\Alias::getAlias('@rock'));
         $this->assertEquals('/rock/framework/test/file', \rock\base\Alias::getAlias('@rock/test/file'));
         \rock\base\Alias::setAlias('@rock/runtime', '/rock/runtime');
