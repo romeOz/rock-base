@@ -172,7 +172,7 @@ class Alias
 
     /**
      * Exists alias.
-     * 
+     *
      * @param string $alias the alias name (e.g. "@rock"). It must start with a '@' character.
      * @return bool
      */
