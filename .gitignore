@@ -2,6 +2,7 @@
 ## Project
 ############
 
+build
 vendor
 composer.lock
 *~
