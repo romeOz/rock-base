@@ -12,12 +12,6 @@ interface CollectionInterface extends \IteratorAggregate
     public function get($name);
 
     /**
-     * @param array $names
-     * @return array
-     */
-    public function getMulti(array $names);
-
-    /**
      * @param array $only  list of items whose value needs to be returned.
      * @param array $exclude list of items whose value should NOT be returned.
      * @return array
