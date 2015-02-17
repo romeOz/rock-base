@@ -13,4 +13,4 @@ $_SERVER['REQUEST_URI'] = '/';
 date_default_timezone_set('UTC');
 
 defined('ROCKUNIT_RUNTIME') or define('ROCKUNIT_RUNTIME', __DIR__ . '/runtime');
-defined('DEBUG') or define('DEBUG', false);
+defined('ROCK_DEBUG') or define('ROCK_DEBUG', false);

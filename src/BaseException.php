@@ -31,7 +31,7 @@ class BaseException extends \Exception implements ExceptionInterface
      * @param \Exception $exception the exception to convert to a PHP error.
      * @param bool       $asStack
      */
-    public static function convertExceptionToError(\Exception $exception, $asStack = DEBUG)
+    public static function convertExceptionToError(\Exception $exception, $asStack = ROCK_DEBUG)
     {
         trigger_error(static::convertExceptionToString($exception, $asStack), E_USER_ERROR);
     }
@@ -43,7 +43,7 @@ class BaseException extends \Exception implements ExceptionInterface
      * @param bool       $asStack
      * @return string the string representation of the exception.
      */
-    public static function convertExceptionToString(\Exception $exception, $asStack = DEBUG)
+    public static function convertExceptionToString(\Exception $exception, $asStack = ROCK_DEBUG)
     {
         $trace = $exception->getTrace();
         $placeholders = [
