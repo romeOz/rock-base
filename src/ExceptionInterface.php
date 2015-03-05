@@ -28,6 +28,7 @@ interface ExceptionInterface
     const NOT_INSTALL_DI = 'Library "rock-di" does not install.';
     const NOT_INSTALL_REQUEST = 'Library "rock-request" does not install.';
     const NOT_INSTALL_I18N = 'Library "rock-i18n" does not install.';
+    const NOT_INSTALL_IMAGE = 'Library "rock-image" does not install.';
 
     /**
      * @param string     $msg         message
