@@ -48,6 +48,11 @@ trait ObjectTrait
     public function setProperties(array $config = [])
     {
         if (!empty($config)) {
+            foreach ($config as &$property) {
+                if (is_callable($property) && is_array($property) && is_subclass_of($property[0], '\rock\core\Properties')) {
+                    $property = call_user_func($property, $this);
+                }
+            }
             ObjectHelper::setProperties($this, $config);
         }
     }
