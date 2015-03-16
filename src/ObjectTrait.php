@@ -5,7 +5,6 @@ namespace rock\base;
 
 use rock\helpers\ArrayHelper;
 use rock\helpers\Helper;
-use rock\helpers\ObjectHelper;
 
 trait ObjectTrait
 {
