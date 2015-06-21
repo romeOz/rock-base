@@ -68,7 +68,6 @@ class ObjectTraitTest extends \PHPUnit_Framework_TestCase
         $bar->exception = 'exception';
     }
 
-
     public function testSetterGetter()
     {
         $config = ['name' => 'Tom', 'age' => 20];
@@ -134,15 +133,14 @@ class ObjectTraitTest extends \PHPUnit_Framework_TestCase
         $object->unknown();
     }
 
-    public function testResetProperty()
+    public function testReset()
     {
         $config = ['name' => 'Tom', 'age' => 20, 'lastname' => 'Tailor'];
         $object = new SetterGetter($config);
-        $object->reset();
+        $object->reset(true);
         $this->assertNull($object->name);
         $this->assertNull($object->age);
         $this->assertSame('Sawyer', $object->lastname);
-
     }
 }
 

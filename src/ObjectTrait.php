@@ -247,9 +247,13 @@ trait ObjectTrait
 
     /**
      * Reset non-static properties.
+     * @param bool $autoreset autorest properties.
      */
-    public function reset()
+    public function reset($autoreset = false)
     {
+        if (!$autoreset) {
+            return;
+        }
         $properties = array_intersect_key(
             (array)get_class_vars(get_class($this)),
             (array)get_object_vars($this)
@@ -258,7 +262,7 @@ trait ObjectTrait
             $this->{$property} = $value;
         }
     }
-    
+
     public function __sleep()
     {
         return array_keys(get_object_vars($this));

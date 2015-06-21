@@ -77,13 +77,7 @@ interface ObjectInterface
     public function hasMethod($name);
     /**
      * Reset non-static properties.
+     * @param bool $autoreset autorest properties.
      */
-    public function reset();
-    /**
-     * Reset static property.
-     *
-     * @param string|null $name name of static property.
-     * @param array $keys if a static property is an array, you can specify a list of keys to remove.
-     */
-    public function resetStatic($name = null, array $keys = []);
+    public function reset($autoreset = false);
 }
