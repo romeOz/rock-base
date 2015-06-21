@@ -258,34 +258,7 @@ trait ObjectTrait
             $this->{$property} = $value;
         }
     }
-
-    /**
-     * Reset static property.
-     *
-     * @param string|null $name name of static property.
-     * @param array $keys if a static property is an array, you can specify a list of keys to remove.
-     */
-    public function resetStatic($name = null, array $keys = [])
-    {
-        $properties = array_diff_key(
-            (array)get_class_vars(get_class($this)),
-            (array)get_object_vars($this)
-        );
-        if (isset($name)) {
-            if (isset($properties[$name])) {
-                if (!empty($keys) && is_array($properties[$name])) {
-                    static::${$name} = ArrayHelper::removeValue($properties[$name], $keys);
-                    return;
-                }
-                static::${$name} = Helper::clearByType(static::${$name});
-            }
-            return;
-        }
-        foreach ($properties as $property => $value) {
-            static::${$property} = Helper::clearByType($value);
-        }
-    }
-
+    
     public function __sleep()
     {
         return array_keys(get_object_vars($this));
