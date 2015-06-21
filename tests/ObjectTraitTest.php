@@ -144,33 +144,6 @@ class ObjectTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('Sawyer', $object->lastname);
 
     }
- 
-    //
-    //    public function testCallStaticGetter()
-    //    {
-    //        $bar = new Bar();
-    //        $this->assertEquals($bar->getStaticTest(), 'static property');
-    //    }
-    //
-    //    public function testCallSetter()
-    //    {
-    //        $bar = new Bar();
-    //        $this->assertEquals($bar->getTest(), 'property');
-    //    }
-    //
-    //    public function testCallStaticSetter()
-    //    {
-    //        $bar = new Bar();
-    //        $bar->setStaticTest('change static property');
-    //        $this->assertEquals($bar->getStaticTest(), 'change static property');
-    //    }
-    //
-    //    public function testCallGetter()
-    //    {
-    //        $bar = new Bar();
-    //        $bar->setTest(['change property']);
-    //        $this->assertEquals($bar->getTest(), ['change property']);
-    //    }
 }
 
 
