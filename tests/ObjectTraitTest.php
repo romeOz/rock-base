@@ -144,43 +144,7 @@ class ObjectTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('Sawyer', $object->lastname);
 
     }
-    public function testResetAllStaticProperties()
-    {
-        $baz = new Baz(new Bar());
-        Baz::$pubProperty = 'test';
-        $this->assertSame('test', Baz::$pubProperty);
-        $baz->resetStatic();
-        $this->assertSame('', Baz::$pubProperty);
-        $this->assertInternalType('int', $baz->getPrtProperty());
-        $this->assertSame(0, $baz->getPrtProperty());
-        $this->assertInternalType('array', $baz->getPrvProperty());
-        $this->assertSame([], $baz->getPrvProperty());
-    }
-
-    public function testResetStaticProperty()
-    {
-        $baz = new Baz(new Bar(), []);
-        Baz::$pubProperty = 'test';
-        $this->assertEquals('test', Baz::$pubProperty);
-        $baz->resetStatic('pubProperty');
-        $this->assertSame('', Baz::$pubProperty);
-        $this->assertInternalType('int', $baz->getPrtProperty());
-        $this->assertSame(7, $baz->getPrtProperty());
-        $this->assertInternalType('array', $baz->getPrvProperty());
-        $this->assertEquals(['name' => 'baz', 'type' => ['name' => 'type']], $baz->getPrvProperty());
-    }
-
-    public function testResetStaticPropertyByKeys()
-    {
-        $baz = new Baz(new Bar(), []);
-        Baz::$pubProperty = 'test';
-        $baz->resetStatic('prvProperty', ['type', 'name']);
-        $this->assertEquals('test', Baz::$pubProperty);
-        $this->assertInternalType('int', $baz->getPrtProperty());
-        $this->assertSame(7, $baz->getPrtProperty());
-        $this->assertInternalType('array', $baz->getPrvProperty());
-        $this->assertEquals(['name' => 'baz', 'type' => []], $baz->getPrvProperty());
-    }
+ 
     //
     //    public function testCallStaticGetter()
     //    {
