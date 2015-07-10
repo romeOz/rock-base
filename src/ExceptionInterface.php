@@ -31,9 +31,9 @@ interface ExceptionInterface
     const NOT_INSTALL_IMAGE = 'Library "rock-image" does not install.';
 
     /**
-     * @param string     $msg         message
-     * @param array      $placeholders placeholders for replacement
-     * @param \Exception|null $handler     handler
+     * @param string $msg message
+     * @param array $placeholders placeholders for replacement
+     * @param \Exception|null $handler handler
      */
     public function __construct($msg, array $placeholders = [], \Exception $handler = null);
 }

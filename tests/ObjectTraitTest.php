@@ -158,7 +158,6 @@ class Foo implements ObjectInterface
     public $test = 'property';
 
 
-
     public function setFoo($value)
     {
         $this->baz = $value;

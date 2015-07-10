@@ -12,9 +12,9 @@ class BaseException extends \Exception implements ExceptionInterface
     /**
      * Constructor
      *
-     * @param string     $msg         message
-     * @param array      $placeholders placeholders for replacement
-     * @param \Exception|null $handler     handler
+     * @param string $msg message
+     * @param array $placeholders placeholders for replacement
+     * @param \Exception|null $handler handler
      */
     public function __construct($msg, array $placeholders = [], \Exception $handler = null)
     {
@@ -29,7 +29,7 @@ class BaseException extends \Exception implements ExceptionInterface
      * to PHP errors because exceptions cannot be thrown inside of them.
      *
      * @param \Exception $exception the exception to convert to a PHP error.
-     * @param bool       $asStack
+     * @param bool $asStack
      */
     public static function convertExceptionToError(\Exception $exception, $asStack = ROCK_DEBUG)
     {
@@ -40,7 +40,7 @@ class BaseException extends \Exception implements ExceptionInterface
      * Converts an exception into a simple string.
      *
      * @param \Exception $exception the exception being converted
-     * @param bool       $asStack
+     * @param bool $asStack
      * @return string the string representation of the exception.
      */
     public static function convertExceptionToString(\Exception $exception, $asStack = ROCK_DEBUG)
@@ -48,7 +48,7 @@ class BaseException extends \Exception implements ExceptionInterface
         $trace = $exception->getTrace();
         $placeholders = [
             'class' => isset($trace[0]['class']) ? $trace[0]['class'] : '',
-            'method'=> isset($trace[0]['function']) ? $trace[0]['function'] : '',
+            'method' => isset($trace[0]['function']) ? $trace[0]['function'] : '',
             'message' => $asStack
                 ? $exception->getMessage() . ' ' . $exception->getTraceAsString()
                 : $exception->getMessage(),

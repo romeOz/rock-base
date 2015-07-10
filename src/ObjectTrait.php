@@ -88,8 +88,8 @@ trait ObjectTrait
      * Do not call this method directly as it is a PHP magic method that
      * will be implicitly called when executing `$object->property = $value;`.
      *
-     * @param string $name  the property name or the event name
-     * @param mixed  $value the property value
+     * @param string $name the property name or the event name
+     * @param mixed $value the property value
      * @throws BaseException if the property is not defined
      * @throws BaseException if the property is read-only.
      * @see __get
@@ -161,8 +161,8 @@ trait ObjectTrait
      * Do not call this method directly as it is a PHP magic method that
      * will be implicitly called when an unknown method is being invoked.
      *
-     * @param string $name   the method name
-     * @param array  $params method parameters
+     * @param string $name the method name
+     * @param array $params method parameters
      * @throws \Exception when calling unknown method
      * @return mixed the method return value
      */
@@ -181,7 +181,7 @@ trait ObjectTrait
      *   (in this case, property name is case-insensitive);
      * - the class has a member variable with the specified name (when `$checkVars` is true);
      *
-     * @param string  $name      the property name
+     * @param string $name the property name
      * @param boolean $checkVars whether to treat member variables as properties
      * @return boolean whether the property is defined
      * @see canGetProperty
@@ -200,7 +200,7 @@ trait ObjectTrait
      *   (in this case, property name is case-insensitive);
      * - the class has a member variable with the specified name (when `$checkVars` is true);
      *
-     * @param string  $name      the property name
+     * @param string $name the property name
      * @param boolean $checkVars whether to treat member variables as properties
      * @return boolean whether the property can be read
      * @see canSetProperty
@@ -218,7 +218,7 @@ trait ObjectTrait
      *   (in this case, property name is case-insensitive);
      * - the class has a member variable with the specified name (when `$checkVars` is true);
      *
-     * @param string  $name      the property name
+     * @param string $name the property name
      * @param boolean $checkVars whether to treat member variables as properties
      * @return boolean whether the property can be written
      * @see canGetProperty
