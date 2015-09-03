@@ -22,6 +22,7 @@
     <filter>
         <blacklist>
             <file>./src/ExceptionInterface.php</file>
+            <file>./src/Responseble.php</file>
         </blacklist>
     </filter>
     <logging>
