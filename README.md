@@ -8,7 +8,7 @@ Base module for [Rock Framework](https://github.com/romeOz/rock)
 
 Requirements
 -------------------
- * **PHP 5.4+**
+ * PHP 5.4+
 
 License
 -------------------
