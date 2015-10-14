@@ -37,6 +37,10 @@ class AliasTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('/rock/runtime', \rock\base\Alias::getAlias('@rock/runtime'));
         $this->assertEquals('/rock/runtime/file', \rock\base\Alias::getAlias('@rock/runtime/file'));
 
+        // placeholders
+        \rock\base\Alias::setAlias('plh', '/news/{id}/');
+        $this->assertSame('/news/7', \rock\base\Alias::getAlias('@plh', ['id' => 7]));
+
         \rock\base\Alias::setAlias('@rock.test', '@rock/test');
         $this->assertEquals('/rock/framework/test', \rock\base\Alias::getAlias('@rock.test'));
 

@@ -48,7 +48,6 @@ class Alias
      */
     public static function getAlias($alias, array $placeholders = [], $throwException = true)
     {
-        $alias = StringHelper::replace($alias, $placeholders);
         if (strncmp($alias, '@', 1)) {
             // not an alias
             return $alias;
@@ -61,11 +60,13 @@ class Alias
 
         if (isset(static::$aliases[$root])) {
             if (is_string(static::$aliases[$root])) {
-                return $pos === false ? static::$aliases[$root] : static::$aliases[$root] . substr($alias, $pos);
+                $result = $pos === false ? static::$aliases[$root] : static::$aliases[$root] . substr($alias, $pos);
+                return StringHelper::replace($result, $placeholders, false);
             } else {
                 foreach (static::$aliases[$root] as $name => $path) {
                     if (strpos($alias . $delimiter, $name . $delimiter) === 0) {
-                        return $path . substr($alias, strlen($name));
+                        $result = $path . substr($alias, strlen($name));
+                        return StringHelper::replace($result, $placeholders, false);
                     }
                 }
             }
@@ -77,7 +78,6 @@ class Alias
             return false;
         }
     }
-
     /**
      * Registers a path alias.
      *
