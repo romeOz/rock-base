@@ -23,6 +23,7 @@
         <blacklist>
             <file>./src/ExceptionInterface.php</file>
             <file>./src/Responseble.php</file>
+            <file>./src/polyfills.php</file>
         </blacklist>
     </filter>
     <logging>

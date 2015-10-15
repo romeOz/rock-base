@@ -29,7 +29,8 @@
   "autoload": {
     "psr-4": {
       "rock\\base\\": "src/"
-    }
+    },
+    "files": ["src/polyfills.php"]
   },
   "extra": {
     "branch-alias": {
