@@ -78,6 +78,7 @@ class Alias
             return false;
         }
     }
+
     /**
      * Registers a path alias.
      *
@@ -90,7 +91,6 @@ class Alias
      * Note that this method does not check if the given path exists or not. All it does is
      * to associate the alias with the path.
      *
-     * Any trailing '/' and '\' characters in the given path will be trimmed.
      *
      * @param string $alias the alias name (e.g. "@rock"). It must start with a '@' character.
      * It may contain the forward slash '/' which serves as boundary character when performing
@@ -103,10 +103,11 @@ class Alias
      * - a path alias (e.g. `@rock/base`). In this case, the path alias will be converted into the
      *   actual path first by calling {@see \rock\base\Alias::getAlias()}.
      *
+     * @param bool $trailingTrim any trailing '/' and '\' characters in the given path/url will be trimmed.
      * @throws \Exception if $path is an invalid alias.
      * @see getAlias()
      */
-    public static function setAlias($alias, $path)
+    public static function setAlias($alias, $path, $trailingTrim = true)
     {
         if (strncmp($alias, '@', 1)) {
             $alias = '@' . $alias;
@@ -116,7 +117,11 @@ class Alias
         $pos = strpos($alias, $delimiter);
         $root = $pos === false ? $alias : substr($alias, 0, $pos);
         if ($path !== null) {
-            $path = strncmp($path, '@', 1) ? rtrim($path, '\\/') : static::getAlias($path);
+            if (!strncmp($path, '@', 1)) {
+                $path = static::getAlias($path);
+            } elseif ($trailingTrim) {
+                $path = rtrim($path, '\\/');
+            }
             if (!isset(static::$aliases[$root])) {
                 if ($pos === false) {
                     static::$aliases[$root] = $path;

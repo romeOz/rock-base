@@ -21,7 +21,7 @@ interface ExceptionInterface
     const NOT_OBJECT = 'Does not object: {{name}}.';
     const NOT_ARRAY = 'Does not array: {{name}}.';
     const WRONG_TYPE = 'Wrong type: {{name}}.';
-    const NOT_INSTALL_LIBRARY = 'Library {{name}} does not install.';
+    const NOT_INSTALL_LIBRARY = 'Library "{{name}}" does not install.';
     const NOT_INSTALL_CSRF = 'Library "rock-csrf" does not install.';
     const NOT_INSTALL_TEMPLATE = 'Library "rock-template" does not install.';
     const NOT_INSTALL_FILE = 'Library "rock-file" does not install.';
@@ -30,6 +30,7 @@ interface ExceptionInterface
     const NOT_INSTALL_RESPONSE = 'Library "rock-response" does not install.';
     const NOT_INSTALL_I18N = 'Library "rock-i18n" does not install.';
     const NOT_INSTALL_IMAGE = 'Library "rock-image" does not install.';
+    const NOT_INSTALL_FILTERS = 'Library "rock-filters" does not install.';
 
     /**
      * @param string $msg message
