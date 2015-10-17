@@ -154,11 +154,7 @@ class Alias
      * Defines path aliases.
      * This method calls {@see \rock\base\Alias::setAlias()} to register the path aliases.
      * This method is provided so that you can define path aliases when configuring a module.
-     * @property array list of path aliases to be defined. The array keys are alias names
-     * (must start with '@') and the array values are the corresponding paths or aliases.
-     * See {@see \rock\base\Alias::setAlias()} for an example.
-     * @param array $aliases list of path aliases to be defined. The array keys are alias names
-     * (must start with '@') and the array values are the corresponding paths or aliases.
+     *
      * For example,
      *
      * ```php
@@ -167,11 +163,17 @@ class Alias
      *     '@backend' => __DIR__ . '/../backend',  // a directory
      * ]
      * ```
+     * @property array list of path aliases to be defined. The array keys are alias names
+     * (must start with '@') and the array values are the corresponding paths or aliases.
+     * See {@see \rock\base\Alias::setAlias()} for an example.
+     * @param array $aliases list of path aliases to be defined. The array keys are alias names
+     * (must start with '@') and the array values are the corresponding paths or aliases.
+     * @param bool $trailingTrim any trailing '/' and '\' characters in the given path/url will be trimmed.
      */
-    public static function setAliases($aliases)
+    public static function setAliases($aliases, $trailingTrim = true)
     {
         foreach ($aliases as $name => $alias) {
-            static::setAlias($name, $alias);
+            static::setAlias($name, $alias, $trailingTrim);
         }
     }
 
