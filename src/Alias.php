@@ -170,7 +170,7 @@ class Alias
      * (must start with '@') and the array values are the corresponding paths or aliases.
      * @param bool $trailingTrim any trailing '/' and '\' characters in the given path/url will be trimmed.
      */
-    public static function setAliases($aliases, $trailingTrim = true)
+    public static function setAliases(array $aliases, $trailingTrim = true)
     {
         foreach ($aliases as $name => $alias) {
             static::setAlias($name, $alias, $trailingTrim);
