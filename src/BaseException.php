@@ -3,6 +3,8 @@ namespace rock\base;
 
 use rock\helpers\StringHelper;
 
+defined('ROCK_DEBUG') or define('ROCK_DEBUG', true);
+
 class BaseException extends \Exception implements ExceptionInterface
 {
     use ClassName;
