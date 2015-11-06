@@ -22,20 +22,27 @@ interface ExceptionInterface
     const NOT_ARRAY = 'Does not array: {{name}}.';
     const WRONG_TYPE = 'Wrong type: {{name}}.';
     const NOT_INSTALL_LIBRARY = 'Library "{{name}}" does not install.';
-    const NOT_INSTALL_CSRF = 'Library "rock-csrf" does not install.';
-    const NOT_INSTALL_TEMPLATE = 'Library "rock-template" does not install.';
-    const NOT_INSTALL_FILE = 'Library "rock-file" does not install.';
-    const NOT_INSTALL_DI = 'Library "rock-di" does not install.';
-    const NOT_INSTALL_REQUEST = 'Library "rock-request" does not install.';
-    const NOT_INSTALL_RESPONSE = 'Library "rock-response" does not install.';
-    const NOT_INSTALL_I18N = 'Library "rock-i18n" does not install.';
-    const NOT_INSTALL_IMAGE = 'Library "rock-image" does not install.';
-    const NOT_INSTALL_FILTERS = 'Library "rock-filters" does not install.';
+    const NOT_INSTALL_CSRF = 'Library "Rock CSRF" does not install.';
+    const NOT_INSTALL_TEMPLATE = 'Library "Rock Template" does not install.';
+    const NOT_INSTALL_FILE = 'Library "Rock File" does not install.';
+    const NOT_INSTALL_DI = 'Library "Rock DI" does not install.';
+    const NOT_INSTALL_REQUEST = 'Library "Rock Request" does not install.';
+    const NOT_INSTALL_RESPONSE = 'Library "Rock Response" does not install.';
+    const NOT_INSTALL_I18N = 'Library "Rock i18n" does not install.';
+    const NOT_INSTALL_IMAGE = 'Library "Rock Image" does not install.';
+    const NOT_INSTALL_FILTERS = 'Library "Rock Filters" does not install.';
+    const NOT_INSTALL_CAPTCHA = 'Library "Rock Captcha" does not install.';
+    const NOT_INSTALL_URL = 'Library "Rock URL" does not install.';
+    const NOT_INSTALL_VALIDATE = 'Library "Rock Validate" does not install.';
+    const NOT_INSTALL_SANITIZE = 'Library "Rock Sanitize" does not install.';
+    const NOT_INSTALL_DB = 'Library "Rock DB" does not install.';
+    const NOT_INSTALL_CACHE = 'Library "Rock Cache" does not install.';
 
     /**
      * @param string $msg message
      * @param array $placeholders placeholders for replacement
+     * @param int $level
      * @param \Exception|null $handler handler
      */
-    public function __construct($msg, array $placeholders = [], \Exception $handler = null);
+    public function __construct($msg, array $placeholders = [], $level = 0, \Exception $handler = null);
 }
