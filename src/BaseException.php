@@ -14,12 +14,13 @@ class BaseException extends \Exception implements ExceptionInterface
      *
      * @param string $msg message
      * @param array $placeholders placeholders for replacement
+     * @param int $level
      * @param \Exception|null $handler handler
      */
-    public function __construct($msg, array $placeholders = [], \Exception $handler = null)
+    public function __construct($msg, array $placeholders = [], $level = 0, \Exception $handler = null)
     {
         $msg = StringHelper::replace($msg, $placeholders);
-        parent::__construct($msg, 0, $handler);
+        parent::__construct($msg, $level, $handler);
     }
 
     /**
@@ -45,6 +46,7 @@ class BaseException extends \Exception implements ExceptionInterface
      */
     public static function convertExceptionToString(\Exception $exception, $asStack = ROCK_DEBUG)
     {
+
         $trace = $exception->getTrace();
         $placeholders = [
             'class' => isset($trace[0]['class']) ? $trace[0]['class'] : '',
