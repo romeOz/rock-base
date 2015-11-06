@@ -19,13 +19,6 @@ interface ObjectInterface
     public function init();
 
     /**
-     * Set properties
-     *
-     * @param array $configs name-value pairs that will be used to initialize the object properties
-     */
-    public function setProperties(array $configs = []);
-
-    /**
      * Returns a value indicating whether a property is defined.
      * A property is defined if:
      *

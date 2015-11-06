@@ -3,6 +3,8 @@
 namespace rock\base;
 
 
+use rock\helpers\Instance;
+
 trait ObjectTrait
 {
     use ClassName;
@@ -23,7 +25,7 @@ trait ObjectTrait
      */
     public function __construct($config = [])
     {
-        $this->setProperties($config);
+        Instance::configure($this, $config);
         $this->init();
     }
 
@@ -34,23 +36,6 @@ trait ObjectTrait
      */
     public function init()
     {
-    }
-
-    /**
-     * Set properties
-     *
-     * @param array $config name-value pairs that will be used to initialize the object properties
-     */
-    public function setProperties(array $config = [])
-    {
-        if (!empty($config)) {
-            foreach ($config as $name => $value) {
-                if (is_callable($value) && is_array($value) && is_subclass_of($value[0], '\rock\core\Properties')) {
-                    $value = call_user_func($value, $this);
-                }
-                $this->$name = $value;
-            }
-        }
     }
 
     /**
